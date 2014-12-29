@@ -1,4 +1,5 @@
 cache
 output
 *.pyc
+*.*~
 themes/uw-foundation/.sass-cache
