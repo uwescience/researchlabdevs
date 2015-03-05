@@ -25,26 +25,7 @@
 </div>
 </div>
 
-<!-- Show menu items and pages -->
-<div class="row">
-<div class="large-9 columns">
-    <ul class="button-group navigation">
-	{% for title, link in MENUITEMS %}
-    <li><a href="{{ link }}" class="button secondary small">{{ title }}</a></li>
-    {% endfor %}
-
-    {% if DISPLAY_PAGES_ON_MENU %}
-        {% for page in PAGES %}
-            <li><a href="{{ SITEURL }}/{{ page.url }}" class="button secondary small">{{ page.title }}</a></li>
-        {% endfor %}
-    {% endif %}
-    </ul>
-</div>
-</div>
-</nav>
-<!-- End Nav -->
-
-
+<img src="{{ SITEURL }}/theme/images/uw_lab_devs.jpg" alt="uw_lab_devs" style="float:right;width:20%;margin-right:2rem">
 <!-- Main Page Content and Sidebar -->
 <div class="row">
 
@@ -56,7 +37,25 @@
 
     <!-- Sidebar -->
     <aside class="large-3 columns">
-        <h5 class="sidebar-title">Site</h5>
+      
+        {% if categories %}		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+        {% for cat, null in categories %}
+            <li><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+        {% endfor %}   
+        </ul>
+        {% endif %}
+
+	{% if SOCIAL %}
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+        {% for name, link in SOCIAL %}
+            <li><a href="{{ link }}">{{ name }}</a></li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+	<h5 class="sidebar-title">Site</h5>
         <ul class="side-nav">
             <li><a href="{{ SITEURL }}/archives.html">Archives</a>
             <li><a href="{{ SITEURL }}/tags.html">Tags</a>
@@ -67,16 +66,7 @@
             <li><a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" rel="alternate">RSS feed</a></li>
             {% endif %}
         </ul>
-
-        {% if categories %}		
-        <h5 class="sidebar-title">Categories</h5>
-        <ul class="side-nav">
-        {% for cat, null in categories %}
-            <li><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-        {% endfor %}   
-        </ul>
-        {% endif %}
-
+	
         {% if LINKS %}
         <h5 class="sidebar-title">Links</h5>
         <ul class="side-nav">
@@ -86,15 +76,6 @@
         </ul>
         {% endif %}
 		
-        {% if SOCIAL %}
-        <h5 class="sidebar-title">Social</h5>
-        <ul class="side-nav">
-        {% for name, link in SOCIAL %}
-            <li><a href="{{ link }}">{{ name }}</a></li>
-        {% endfor %}
-        </ul>
-        {% endif %}
-
     </aside> <!-- End Sidebar -->
 
 </div> <!-- End Main Content and Sidebar -->
