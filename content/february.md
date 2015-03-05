@@ -6,7 +6,7 @@ Slug: patterns
 Author: Maria McKinley
 Summary: Meetings discussing Design Patterns
 
-In February, we started something new. Each month we are going to have a meeting dedicated to a design pattern. In Febrary, we started with the Strategy Pattern.
+In February, we started something new. Each month we are going to have a meeting dedicated to a design pattern. We started with the Strategy Pattern.
 
 The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it. (Head First Design Patterns)
 
